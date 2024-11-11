@@ -18,6 +18,11 @@ jobs:
     working_directory: ~/build  # Corrected working directory key
     steps:
       - checkout
+      # Install findutils so that the `find` command is available
+      - run:
+          name: "Install find utility"
+          command: |
+            sudo apt-get update && sudo apt-get install -y findutils
       - run:
           name: "Find files"
           command: "find ."
